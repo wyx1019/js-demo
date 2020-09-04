@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm + Birthday</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <style>
+        #setHour {
+            text-align: right;
+        }
+
+        span {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Set Alarm</h3>
+    <input type="number" name="hour" id="setHour" value="17"><span> : </span>
+    <input type="number" name="minute" id="setMinute" value="10">
+    <button onclick="alarmOn()">Alarm On</button>
+    <p> You can set an alarm as you like ~</p>
+
+    <!-- <h3>What day is the day when you were born?</h3> -->
+    <!-- <input type="time" name="setTime" id="setTime" value="13:30"> -->
+    <!-- <input type="date" name="" id="setDate" value="2020-03-19">
+    <button onclick="getDay()">Check it Out!</button> -->
+    <script>
+        // start 按下后自动变成stop -----此方法后台控制处会重复执行两次
+        // start 按下后自动disabled
+        // 到达设定时间闹铃响起
+        // 设置次日闹钟的情况-- 选择今日或明日
+        var flag = 0;
+
+        function alarmOn() {
+            flag++;
+            var setHour = document.getElementById("setHour").value;
+            var setMinute = document.getElementById("setMinute").value;
+            var p = document.getElementsByTagName("p")[0];
+            var btn0 = document.getElementsByTagName("button")[0];
+            var date = new Date();
+            date.setHours(setHour);
+            date.setMinutes(setMinute);
+            if (flag % 2 !== 0) {
+                btn0.innerHTML = "Alarm Off";
+                p.innerHTML = "You have successfully set an alarm on today at " + setHour + " : " + setMinute;
+            } else {
+                btn0.innerHTML = "Alarm On";
+                p.innerHTML = "You can set an alarm as you like ~";
+
+            }
+
+            function timeDif() {
+                var now = new Date();
+                var dif = date.getTime() - now.getTime();
+                if (dif <= 0) {
+                    flag = 0;
+                    clearInterval(alarm);
+                    alert("Alarm!!!");
+                }
+                if (flag % 2 == 0) {
+                    clearInterval(alarm);
+                    console.log("reset");
+                }
+                console.log("aaa");
+            }
+
+            var alarm = setInterval(timeDif, 100);
+        }
+    </script>
+</body>
+
+</html>

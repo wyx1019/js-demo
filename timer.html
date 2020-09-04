@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/timer.js"></script>
+    <title>Timer</title>
+    <style>
+        .setTimer {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Timer</h3>
+    <p>
+        <input type="number" class="setTimer" name="setMin" id="setMin" value="1">
+        Minutes
+        <input type="number" class="setTimer" name="setSec" id="setSec" value="0">
+        Seconds
+    </p>
+
+    <button onclick="timerOn()">Start</button>
+    <button onclick="timerOff()">Reset</button>
+
+
+    <p>
+        Min: <input type="text" name="min" id="min" value="0">
+        Sec: <input type="text" name="sec" id="sec" value="0">
+        Ms: <input type="text" name="ms" id="ms" value="0">
+    </p>
+
+
+</body>
+
+</html>

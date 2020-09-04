@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var div = document.createElement("div");
+        document.body.appendChild(div);
+        div.style.width="100px";
+        div.style.height="100px";
+        div.style.backgroundColor="pink";
+        div.style.position="absolute";
+        div.style.left = "0";
+        div.style.top = "0";
+        var speed = 5;
+        document.onkeydown = function(e){
+            speed += speed/7;
+            console.log(e.which);
+            switch(e.which){
+                case 38://上へ
+                    div.style.top = parseInt(div.style.top) - 5 + "px";
+                    break;
+                case 40://下へ
+                    div.style.top = parseInt(div.style.top) + speed + "px";
+                    break;
+                case 37://左へ
+                    div.style.left = parseInt(div.style.left) - 5 + "px";
+                    break;
+                case 39://右へ
+                    div.style.left = parseInt(div.style.left) + 5 + "px";
+            }
+        }
+        //控制其不超脱显示屏边界
+    </script>
+</body>
+</html>

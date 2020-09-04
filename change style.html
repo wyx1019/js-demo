@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .orange{
+            width:10px;
+            height:10px;
+            background:orange;
+            color:orange;
+            padding: 0;
+            margin:2px;
+        }
+        .navy{
+            width:10px;
+            height:10px;
+            background:navy;
+            color:navy;
+        }
+        .yellowgreen{
+            width:10px;
+            height:10px;
+            background:yellowgreen;
+            color:yellowgreen;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="content">
+            <a class="orange" href="#" οnclick="change('orange')">■</a>
+            <a class="navy" href="#" οnclick="change('navy')">■</a>
+            <a class="yellowgreen" href="#" οnclick="change('yellowgreen')">■</a>
+    <button type="button" onclick ="setcolor('red','white')">赤</button>
+    <button type="button" onclick ="setcolor('blue','white')">青</button>
+    <button type="button" onclick ="setcolor('yellow','black')">黄</button>
+    <button type="button" onclick ="setcolor('pink','black')">桃</button>
+    <button type="button" onclick ="setcolor('purple','white')">紫</button>
+    <button type="button" onclick ="setcolor('green','white')">緑</button>
+    <button type="button" onclick ="smaller()">小さく</button>
+    <button type="button" onclick ="larger()">大きく</button>
+    <button type="button" onclick ="background('gray')">Gray</button>
+    <h1>文字の大きさ</h1>
+    <p id="moji">(笑)(笑)(笑)(笑)(笑)(笑)(笑)(笑)(笑)</p>
+    <p>
+        <script>
+            var x = 100;
+            var moji = document.getElementById("moji");
+            var body = document.getElementById("body");
+            function larger(){
+                x *= 1.2;
+                moji.style.fontSize = x +'%';
+            }
+            function smaller(){
+                x /= 1.2;
+                moji.style.fontSize = x +'%';
+            }
+            function setcolor(color1, color2){
+                moji.style.background = color1;
+                moji.style.color = color2;
+            }
+            function background(color3){
+                body.style.background = color3;
+            }
+            function change(type){
+                if(type == "orange"){
+
+                }
+            }
+        </script>
+
+
+        
+
+        
+    </p>
+</div>
+</body>
